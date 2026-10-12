@@ -1,12 +1,439 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donde la Abuela</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dónde la Abuela | Fritos Tradicionales & Comida Casera</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1> Dónde la Abuela </h1>
+
+  <!-- NAVEGACIÓN -->
+  <header class="navbar">
+    <div class="logo">Dónde la <span>Abuela</span> 🍳</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#fritos">Fritos</a></li>
+        <li><a href="#guisados">Guisados</a></li>
+        <li><a href="#almuerzos">Almuerzos</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+      </ul>
+    </nav>
+    <button class="btn-cart-toggle" onclick="toggleCart()">
+      🛒 Ver Carrito <span id="cart-count">0</span>
+    </button>
+  </header>
+
+  <!-- BANNER HORARIO -->
+  <div class="top-banner">
+    🔥 Atendiendo Todos los Días: 6:00 AM - 1:00 PM | Domicilios en Montería
+  </div>
+
+  <!-- HERO SECTION -->
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <span class="badge">🔥 Sabor Auténtico & Tradición Costeña</span>
+      <h1>Los mejores <span>fritos y guisados</span> con la sazón de la Abuela</h1>
+      <p>Empanadas, arepas de huevo, carimañolas, machucados y almuerzos del día preparados frescos todas las mañanas.</p>
+      
+      <div class="info-pills">
+        <div class="pill">📍 Calle 30 # 3 W 66 (Minuto de Dios)</div>
+        <div class="pill">📞 Domicilios: 302 305 5522</div>
+      </div>
+
+      <div class="hero-btns">
+        <a href="#fritos" class="btn-primary">Ver Menú de Hoy</a>
+        <a href="https://wa.me/573023055522?text=Hola%20%C3%93nde%20la%20Abuela,%20quiero%20pedir%20un%20frito" target="_blank" class="btn-whatsapp">
+          💬 Pedir un Frito
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-image-container">
+      <div class="glow-effect"></div>
+      <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80" alt="Fritos Típicos" class="hero-img">
+    </div>
+  </section>
+
+  <!-- MENÚ COMPLETO -->
+  <section class="menu-container">
+
+    <!-- SECCIÓN FRITOS -->
+    <div id="fritos" class="menu-category">
+      <div class="category-header">
+        <h2>🥟 Fritos & Antojitos Tradicionales</h2>
+        <p>Crujientes, calientitos y recién hechos desde las 6:00 AM</p>
+      </div>
+
+      <div class="menu-grid">
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Empanada</h3>
+            <p>Crujiente por fuera, relleno tradicional y sazón de la casa.</p>
+            <div class="card-footer">
+              <span class="price">$1.500</span>
+              <button class="btn-add" onclick="addToCart('Empanada', 1500)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Carimañola</h3>
+            <p>Masa de yuca doradita rellena con sazón artesanal.</p>
+            <div class="card-footer">
+              <span class="price">$1.500</span>
+              <button class="btn-add" onclick="addToCart('Carimañola', 1500)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Arepa de Huevo</h3>
+            <p>Clásica arepa costeña frita con huevo entero en su punto.</p>
+            <div class="card-footer">
+              <span class="price">$2.500</span>
+              <button class="btn-add" onclick="addToCart('Arepa de Huevo', 2500)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Papa Rellena</h3>
+            <p>Papa sazonada con relleno suave y dorado exterior.</p>
+            <div class="card-footer">
+              <span class="price">$2.500</span>
+              <button class="btn-add" onclick="addToCart('Papa Rellena', 2500)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Machucado (Bola de Gato)</h3>
+            <p>Tradicional machucado de plátano cargado de sabor.</p>
+            <div class="card-footer">
+              <span class="price">$1.500</span>
+              <button class="btn-add" onclick="addToCart('Machucado (Bola de Gato)', 1500)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Plátano Amarillo</h3>
+            <p>Porción dulce y doradita de plátano maduro.</p>
+            <div class="card-footer">
+              <span class="price">$2.000</span>
+              <button class="btn-add" onclick="addToCart('Plátano Amarillo', 2000)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Huevo Adicional</h3>
+            <p>Acompañante ideal para tus fritos o desayunos.</p>
+            <div class="card-footer">
+              <span class="price">$1.000</span>
+              <button class="btn-add" onclick="addToCart('Huevo Adicional', 1000)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN GUISADOS Y ACOMPAÑANTES -->
+    <div id="guisados" class="menu-category">
+      <div class="category-header">
+        <h2>🥘 Guisados & Acompañantes</h2>
+        <p>Guisados caseros a fuego lento y porciones del día</p>
+      </div>
+
+      <div class="menu-grid">
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Pollo Guisado (Porción)</h3>
+            <p>Tiernas presas de pollo con verduras frescas y verdaderos condimentos naturales.</p>
+            <div class="card-footer">
+              <span class="price">$3.000</span>
+              <button class="btn-add" onclick="addToCart('Pollo Guisado (Porción)', 3000)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Cerdo Guisado (Porción)</h3>
+            <p>Carne de cerdo suave y jugosa en salsa criolla especial.</p>
+            <div class="card-footer">
+              <span class="price">$4.000</span>
+              <button class="btn-add" onclick="addToCart('Cerdo Guisado (Porción)', 4000)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Pata de Pollo Guisado (Porción)</h3>
+            <p>Porción llena de colágeno y rico guiso de la casa.</p>
+            <div class="card-footer">
+              <span class="price">$3.000</span>
+              <button class="btn-add" onclick="addToCart('Pata de Pollo Guisado (Porción)', 3000)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Salpicón de Pescado</h3>
+            <p>Desmenuzado de pescado sazonado con cebolla, pimentón y toques criollos.</p>
+            <div class="card-footer">
+              <span class="price">$2.500</span>
+              <button class="btn-add" onclick="addToCart('Salpicón de Pescado', 2500)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Habichuela Guisada</h3>
+            <p>Porción saludable de habichuelas salteadas estilo abuela.</p>
+            <div class="card-footer">
+              <span class="price">$2.000</span>
+              <button class="btn-add" onclick="addToCart('Habichuela', 2000)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Berenjena Guisada</h3>
+            <p>Berenjena criolla guisada al término perfecto.</p>
+            <div class="card-footer">
+              <span class="price">$2.000</span>
+              <button class="btn-add" onclick="addToCart('Berenjena', 2000)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Arroz Amarillo (Porción)</h3>
+            <p class="item-note">⚠️ Confirma disponibilidad (los tipos de arroz pueden cambiar durante el día).</p>
+            <div class="card-footer">
+              <span class="price">$2.000</span>
+              <button class="btn-add" onclick="addToCart('Arroz Amarillo (Porción)', 2000)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Jugo Natural (Vaso)</h3>
+            <p class="item-note">🥤 Pregunta por el sabor disponible del día.</p>
+            <div class="card-footer">
+              <span class="price">$1.000</span>
+              <button class="btn-add" onclick="addToCart('Jugo Natural', 1000)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN ALMUERZOS POR ENCARGO -->
+    <div id="almuerzos" class="menu-category">
+      <div class="category-header">
+        <h2>🍲 Almuerzos & Encargos del Día</h2>
+        <p>Comida corriente y ejecutiva preparada diariamente</p>
+      </div>
+
+      <div class="menu-grid">
+        <div class="food-card highlight">
+          <div class="card-info">
+            <span class="tag">Por Encargo</span>
+            <h3>Menú del Día Completo</h3>
+            <p>Incluye sopa, arroz, grano, proteína del día, ensalada y jugo. (El menú varía diariamente).</p>
+            <div class="card-footer">
+              <span class="price">$12.000</span>
+              <button class="btn-add" onclick="addToCart('Menú del Día Completo (Por Encargo)', 12000)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Sopa del Día</h3>
+            <p>Sopa casera con bastimento y verduras de la región.</p>
+            <div class="card-footer">
+              <span class="price">$8.000</span>
+              <button class="btn-add" onclick="addToCart('Sopa del Día', 8000)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="card-info">
+            <h3>Plato de Arroz / Carne Especial</h3>
+            <p>Porción individual de seco de almuerzo.</p>
+            <div class="card-footer">
+              <span class="price">$8.000</span>
+              <button class="btn-add" onclick="addToCart('Plato Arroz Especial', 8000)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- UBICACIÓN & DATOS -->
+  <section id="ubicacion" class="location-section">
+    <div class="location-card">
+      <h2>📍 ¿Dónde Estamos Ubicados?</h2>
+      <p class="address">Calle 30 # 3 W 66, Barrio Minuto de Dios — Montería, Córdoba</p>
+      <div class="hours">
+        <p><strong>⏰ Horario de Atención:</strong> Todos los días de 6:00 AM a 1:00 PM</p>
+        <p><strong>📞 Teléfono / Domicilios:</strong> 302 305 5522</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© Dónde la Abuela — Fritos & Comida Casera en Montería.</p>
+  </footer>
+
+  <!-- DRAWER DEL CARRITO FLOTANTE -->
+  <div id="cart-modal" class="cart-modal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h3>Tu Pedido 🛒</h3>
+        <button class="close-btn" onclick="toggleCart()">✕</button>
+      </div>
+
+      <div id="cart-items" class="cart-items">
+        <!-- Ítems dinámicos -->
+      </div>
+
+      <div class="cart-notes">
+        <label for="order-notes">Notas del pedido / Dirección de Domicilio:</label>
+        <textarea id="order-notes" placeholder="Ej: Traer 2 salsas de ajo / Para entregar en Barrio Minuto de Dios..."></textarea>
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total a pagar:</span>
+          <span id="cart-total-price">$0</span>
+        </div>
+        <button class="btn-send-whatsapp" onclick="sendOrderWhatsApp()">
+          📱 Enviar Pedido a WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const PHONE_NUMBER = "573023055522";
+    let cart = [];
+
+    function addToCart(title, price) {
+      const existing = cart.find(item => item.title === title);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ title, price, quantity: 1 });
+      }
+      updateCartUI();
+    }
+
+    function changeQuantity(title, delta) {
+      const item = cart.find(item => item.title === title);
+      if (item) {
+        item.quantity += delta;
+        if (item.quantity <= 0) {
+          cart = cart.filter(i => i.title !== title);
+        }
+      }
+      updateCartUI();
+    }
+
+    function toggleCart() {
+      document.getElementById('cart-modal').classList.toggle('active');
+    }
+
+    function updateCartUI() {
+      const container = document.getElementById('cart-items');
+      const countSpan = document.getElementById('cart-count');
+      const totalSpan = document.getElementById('cart-total-price');
+
+      container.innerHTML = '';
+      let total = 0;
+      let count = 0;
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p class="empty-cart">Tu carrito está vacío. ¡Agrega tus fritos o almuerzos! 🥟</p>';
+      } else {
+        cart.forEach(item => {
+          const subtotal = item.price * item.quantity;
+          total += subtotal;
+          count += item.quantity;
+
+          const div = document.createElement('div');
+          div.className = 'cart-item';
+          div.innerHTML = `
+            <div class="item-details">
+              <strong>${item.title}</strong>
+              <small>$${item.price.toLocaleString('es-CO')} c/u</small>
+            </div>
+            <div class="item-controls">
+              <button onclick="changeQuantity('${item.title}', -1)">-</button>
+              <span>${item.quantity}</span>
+              <button onclick="changeQuantity('${item.title}', 1)">+</button>
+              <span class="item-subtotal">$${subtotal.toLocaleString('es-CO')}</span>
+            </div>
+          `;
+          container.appendChild(div);
+        });
+      }
+
+      countSpan.innerText = count;
+      totalSpan.innerText = `$${total.toLocaleString('es-CO')}`;
+    }
+
+    function sendOrderWhatsApp() {
+      if (cart.length === 0) {
+        alert("Agrega al menos un frito o platillo al carrito.");
+        return;
+      }
+
+      const notes = document.getElementById('order-notes').value.trim();
+      let message = "Hola *Dónde la Abuela*, si me vas a dar una orden que sea para pedir:\n\n";
+      let total = 0;
+
+      cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+        message += `• ${item.quantity}x ${item.title} = $${subtotal.toLocaleString('es-CO')}\n`;
+      });
+
+      message += `\n*TOTAL A PAGAR:* $${total.toLocaleString('es-CO')}\n`;
+      
+      if (notes) {
+        message += `\n📝 *Notas / Domicilio:* ${notes}\n`;
+      }
+
+      message += "\n📍 *Ubicación:* Calle 30 # 3 W 66 Minuto de Dios, Montería.";
+
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodedMessage}`, '_blank');
+    }
+  </script>
 </body>
 </html>
